@@ -1,3 +1,4 @@
+import { Building2, Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { company } from '../data/content'
 import { Logo } from './Logo'
@@ -25,17 +26,27 @@ export function Footer() {
         </div>
         <div>
           <h3>Visit</h3>
-          <div className="footer-links">
-            <a href={`mailto:${company.email}`}>{company.email}</a>
-            <a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a>
-            <a href={company.whatsappUrl} target="_blank" rel="noreferrer">
-              WhatsApp {company.whatsappDisplay}
+          <div className="footer-links footer-visit">
+            <a href={`mailto:${company.email}`}>
+              <Mail size={16} aria-hidden="true" />
+              {company.email}
+            </a>
+            <a href={`tel:${company.phone.replace(/\s/g, '')}`}>
+              <Phone size={16} aria-hidden="true" />
+              {company.phone}
             </a>
             <a href={company.mapsUrl} target="_blank" rel="noreferrer">
+              <MapPin size={16} aria-hidden="true" />
               {company.address.line1}, {company.address.city} {company.address.postcode}
             </a>
-            <span>Head office: {company.headOffice}</span>
-            <span>Operating in the {company.coverage}</span>
+            <span>
+              <Building2 size={16} aria-hidden="true" />
+              Head office: {company.headOffice}
+            </span>
+            <span>
+              <MapPin size={16} aria-hidden="true" />
+              Operating in the {company.coverage}
+            </span>
           </div>
         </div>
       </div>

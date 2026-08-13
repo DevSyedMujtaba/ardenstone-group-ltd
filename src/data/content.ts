@@ -3,7 +3,7 @@ export const company = {
   short: 'Ardenstone',
   tagline: 'Where innovation meets craftsmanship.',
   email: 'info@ardenstonegroupltd.co.uk',
-  phone: '020 3488 4100',
+  phone: '07309999490',
   whatsapp: '+447309999490',
   whatsappDisplay: '+44 7309 999490',
   whatsappUrl: 'https://wa.me/447309999490',

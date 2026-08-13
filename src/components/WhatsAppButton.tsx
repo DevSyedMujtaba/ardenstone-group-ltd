@@ -1,6 +1,6 @@
 import { company } from '../data/content'
 
-function WhatsAppIcon() {
+export function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="whatsapp-icon">
       <path

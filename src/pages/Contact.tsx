@@ -40,15 +40,6 @@ export function Contact() {
             </article>
             <article>
               <h3>
-                <Phone size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />
-                WhatsApp
-              </h3>
-              <a href={company.whatsappUrl} target="_blank" rel="noreferrer">
-                {company.whatsappDisplay}
-              </a>
-            </article>
-            <article>
-              <h3>
                 <Building2 size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />
                 Head office
               </h3>
