@@ -37,9 +37,22 @@ export function Navbar() {
     setOpen(false)
   }, [pathname])
 
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', open)
+    return () => document.body.classList.remove('menu-open')
+  }, [open])
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 1100) setOpen(false)
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
   return (
     <>
-      <header className={`nav ${scrolled || solid ? 'scrolled' : ''} ${solid ? 'solid' : ''}`}>
+      <header className={`nav ${scrolled || solid || open ? 'scrolled' : ''} ${solid ? 'solid' : ''} ${open ? 'open' : ''}`}>
         <Logo />
         <nav>
           <ul className="nav-links">
@@ -55,7 +68,13 @@ export function Navbar() {
         <Link to="/quote" className="btn btn-gold nav-cta">
           Request a quote
         </Link>
-        <button className="menu-btn" type="button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((v) => !v)}>
+        <button
+          className="menu-btn"
+          type="button"
+          aria-expanded={open}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen((v) => !v)}
+        >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </header>
@@ -78,7 +97,7 @@ export function Navbar() {
                 <Link to={link.to}>{link.label}</Link>
               </motion.div>
             ))}
-            <Link to="/quote" className="btn btn-gold" style={{ width: 'fit-content', marginTop: 12 }}>
+            <Link to="/quote" className="btn btn-gold">
               Request a quote
             </Link>
           </motion.div>
