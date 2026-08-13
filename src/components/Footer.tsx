@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom'
 import { company } from '../data/content'
+import { Logo } from './Logo'
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
         <div>
-          <div className="logo" style={{ marginBottom: 18 }}>
-            <span className="logo-text">
-              <strong>ARDENSTONE</strong>
-              <span>Group Ltd</span>
-            </span>
-          </div>
+          <Logo />
           <p>
             Property construction and management, delivered with craftsmanship, care and lasting
             relationships. {company.tagline}
@@ -32,13 +28,20 @@ export function Footer() {
           <div className="footer-links">
             <a href={`mailto:${company.email}`}>{company.email}</a>
             <a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a>
-            <span>{company.area}</span>
+            <a href={company.whatsappUrl} target="_blank" rel="noreferrer">
+              WhatsApp {company.whatsappDisplay}
+            </a>
+            <a href={company.mapsUrl} target="_blank" rel="noreferrer">
+              {company.address.line1}, {company.address.city} {company.address.postcode}
+            </a>
+            <span>Head office: {company.headOffice}</span>
+            <span>Operating in the {company.coverage}</span>
           </div>
         </div>
       </div>
       <div className="wrap footer-bottom">
         <span>© {new Date().getFullYear()} {company.name}. All rights reserved.</span>
-        <span>Construction · Sales · Management</span>
+        <span>Property · Construction · Investment · Community</span>
       </div>
     </footer>
   )

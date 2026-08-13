@@ -34,7 +34,7 @@ export function Services() {
             {services.map((service, i) => (
               <Reveal key={service.id} delay={i * 0.07}>
                 <article className="service-card">
-                  <img src={service.image} alt="" />
+                  <img src={service.image} alt={service.title} />
                   <div className="service-card-body">
                     <span>{service.category}</span>
                     <h3>{service.title}</h3>

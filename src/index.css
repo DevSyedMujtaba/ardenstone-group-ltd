@@ -253,36 +253,27 @@ p {
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--ivory);
+  flex-shrink: 0;
+  line-height: 0;
 }
 
-.logo-mark {
-  width: 36px;
-  height: 36px;
+.logo-img {
+  display: block;
+  height: 58px;
+  width: auto;
+  max-width: min(250px, 58vw);
+  object-fit: contain;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
+.footer .logo {
+  margin-bottom: 18px;
 }
 
-.logo-text strong {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-}
-
-.logo-text span {
-  margin-top: 4px;
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  color: var(--sand);
-  text-transform: uppercase;
+.footer .logo-img {
+  height: 76px;
+  max-width: 300px;
 }
 
 .nav-links {
@@ -357,7 +348,7 @@ p {
   -webkit-overflow-scrolling: touch;
 }
 
-.mobile-panel a {
+.mobile-panel a:not(.btn) {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 8vw, 2.4rem);
   color: var(--ivory);
@@ -367,8 +358,16 @@ p {
 }
 
 .mobile-panel .btn {
-  width: min(100%, 260px);
-  margin-top: 12px;
+  width: auto;
+  max-width: 100%;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 12px 20px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 .hero {
@@ -796,8 +795,7 @@ textarea {
   border-bottom: 1px solid var(--line);
 }
 
-.footer h3,
-.footer .logo-text strong {
+.footer h3 {
   color: var(--ivory);
 }
 
@@ -830,6 +828,36 @@ textarea {
   padding-top: 22px;
   padding-bottom: env(safe-area-inset-bottom);
   font-size: 0.82rem;
+}
+
+.whatsapp-fab {
+  position: fixed;
+  z-index: 85;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(18, 140, 70, 0.4);
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(18, 140, 70, 0.5);
+  color: #fff;
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
 }
 
 @keyframes kenburns {
@@ -982,14 +1010,8 @@ textarea {
 }
 
 @media (max-width: 480px) {
-  .logo-mark {
-    width: 30px;
-    height: 30px;
-  }
-
-  .logo-text strong {
-    font-size: 0.98rem;
-    letter-spacing: 0.1em;
+  .logo-img {
+    height: 46px;
   }
 
   .display {

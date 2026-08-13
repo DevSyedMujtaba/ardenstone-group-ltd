@@ -57,20 +57,6 @@ export function Home() {
         </div>
       </section>
 
-      <div className="stats">
-        {[
-          ['01', 'Design & build'],
-          ['02', 'Lofts & extensions'],
-          ['03', 'Private sales'],
-          ['04', 'Full management'],
-        ].map(([n, label]) => (
-          <div className="stat" key={label}>
-            <strong>{n}</strong>
-            <span>{label}</span>
-          </div>
-        ))}
-      </div>
-
       <section className="section">
         <div className="wrap">
           <Reveal>
@@ -89,7 +75,7 @@ export function Home() {
             {services.map((service, i) => (
               <Reveal key={service.id} delay={i * 0.08}>
                 <Link to="/services" className="service-card" style={{ display: 'block' }}>
-                  <img src={service.image} alt="" />
+                  <img src={service.image} alt={service.title} />
                   <div className="service-card-body">
                     <span>{service.category}</span>
                     <h3>{service.title}</h3>

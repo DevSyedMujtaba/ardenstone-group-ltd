@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
+import { WhatsAppButton } from './WhatsAppButton'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ export function Layout() {
         </motion.main>
       </AnimatePresence>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

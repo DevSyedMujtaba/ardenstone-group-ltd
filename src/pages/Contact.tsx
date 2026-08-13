@@ -1,8 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
+import { Building2, CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 import { PageHero } from '../components/PageHero'
-import { company } from '../data/content'
+import { company, companyAddress } from '../data/content'
 
 export function Contact() {
   const [sent, setSent] = useState(false)
@@ -40,10 +40,32 @@ export function Contact() {
             </article>
             <article>
               <h3>
+                <Phone size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />
+                WhatsApp
+              </h3>
+              <a href={company.whatsappUrl} target="_blank" rel="noreferrer">
+                {company.whatsappDisplay}
+              </a>
+            </article>
+            <article>
+              <h3>
+                <Building2 size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />
+                Head office
+              </h3>
+              <a href={company.mapsUrl} target="_blank" rel="noreferrer">
+                {companyAddress.map((line) => (
+                  <span key={line} style={{ display: 'block' }}>
+                    {line}
+                  </span>
+                ))}
+              </a>
+            </article>
+            <article>
+              <h3>
                 <MapPin size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />
                 Coverage
               </h3>
-              <p>{company.area}</p>
+              <p>We operate in the {company.coverage}.</p>
             </article>
           </div>
 

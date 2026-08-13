@@ -2,10 +2,30 @@ export const company = {
   name: 'Ardenstone Group Ltd',
   short: 'Ardenstone',
   tagline: 'Where innovation meets craftsmanship.',
-  email: 'enquiries@ardenstonegroup.co.uk',
+  email: 'info@ardenstonegroupltd.co.uk',
   phone: '020 3488 4100',
-  area: 'London & the Home Counties',
-}
+  whatsapp: '+447309999490',
+  whatsappDisplay: '+44 7309 999490',
+  whatsappUrl: 'https://wa.me/447309999490',
+  address: {
+    line1: '66 Paul Street',
+    city: 'London',
+    region: 'England',
+    postcode: 'EC2A 4NA',
+    country: 'United Kingdom',
+  },
+  headOffice: 'London',
+  coverage: 'West Midlands, including Wolverhampton',
+  mapsUrl: 'https://maps.google.com/?q=66+Paul+Street,+London+EC2A+4NA',
+} as const
+
+export const companyAddress = [
+  company.address.line1,
+  company.address.city,
+  company.address.region,
+  company.address.postcode,
+  company.address.country,
+] as const
 
 export const navLinks = [
   { to: '/', label: 'Home' },
@@ -49,8 +69,7 @@ export const services = [
     title: 'Plastering',
     summary:
       'Professional plastering for smooth, durable walls and ceilings that lift the whole property.',
-    image:
-      'https://images.unsplash.com/photo-1581852017103-68ac65514cf4?auto=format&fit=crop&w=1400&q=80',
+    image: '/images/plastering.jpg',
   },
   {
     id: 'roofing',
@@ -58,8 +77,7 @@ export const services = [
     title: 'Roofing',
     summary:
       'Repairs, replacements and new installations — keeping your home protected from the elements.',
-    image:
-      'https://images.unsplash.com/photo-1632778149955-e80f8d09b6de?auto=format&fit=crop&w=1400&q=80',
+    image: '/images/roofing.jpg',
   },
   {
     id: 'management',

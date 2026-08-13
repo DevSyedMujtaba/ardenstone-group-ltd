@@ -2,23 +2,8 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { company, navLinks } from '../data/content'
-
-function Logo() {
-  return (
-    <Link to="/" className="logo" aria-label={company.name}>
-      <svg className="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <rect width="64" height="64" rx="8" fill="#141311" />
-        <path d="M32 10L52 50H12L32 10Z" stroke="#cbb892" strokeWidth="2.5" />
-        <path d="M32 22L44 46H20L32 22Z" fill="#cbb892" />
-      </svg>
-      <span className="logo-text">
-        <strong>ARDENSTONE</strong>
-        <span>Group Ltd</span>
-      </span>
-    </Link>
-  )
-}
+import { navLinks } from '../data/content'
+import { Logo } from './Logo'
 
 export function Navbar() {
   const { pathname } = useLocation()
